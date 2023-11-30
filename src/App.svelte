@@ -1,10 +1,35 @@
 <script>
 	export let name;
+
+  const sendRequest = async (url) => {
+    const response = await fetch(url)
+    return await response.json()
+  }
+
+  const fetchDog = async () => {
+    return await sendRequest('https://dog.ceo/api/breeds/image/random')
+  }
+
+  const fetchMovie = async () => {
+    return await sendRequest('https://samliweisen.onrender.com/api/movies/chart')//comming,in_theatre,chart
+  }
+
+  fetchMovie()
+  
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
+  {#await fetchDog()}
+    <p>...waiting</p>
+  {:then data}
+    <img src={data.message} alt="Dog image" />
+  {:catch error}
+    <p>An error occurred!</p>
+  {/await}
+  
 </main>
 
 <style>
