@@ -31,7 +31,10 @@
     <p>Loading Movies...</p>
   {:then movieResponse}
     {#each movieResponse.movies as movie}
-    <article>{movie.title}</article>
+    <article>
+      <img src={movie.poster} />
+      <h4>{movie.title} {movie.douban_rating}</h4>
+    </article>
     {/each}
   {:catch error}
     <p>Movie Error</p>
