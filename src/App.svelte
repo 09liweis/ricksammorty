@@ -13,21 +13,28 @@
   const fetchMovie = async () => {
     return await sendRequest('https://samliweisen.onrender.com/api/movies/chart')//comming,in_theatre,chart
   }
-
-  fetchMovie()
   
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h2>Hello {name}!</h2>
 
-  {#await fetchDog()}
+  <!-- {#await fetchDog()}
     <p>...waiting</p>
   {:then data}
     <img src={data.message} alt="Dog image" />
   {:catch error}
     <p>An error occurred!</p>
+  {/await} -->
+
+  {#await fetchMovie()}
+    <p>Loading Movies...</p>
+  {:then movieResponse}
+    {#each movieResponse.movies as movie}
+    <article>{movie.title}</article>
+    {/each}
+  {:catch error}
+    <p>Movie Error</p>
   {/await}
   
 </main>
