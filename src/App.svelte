@@ -11,7 +11,7 @@
   }
 
   const fetchMovie = async () => {
-    return await sendRequest('https://samliweisen.onrender.com/api/movies/chart')//comming,in_theatre,chart
+    return await sendRequest('https://samliweisen.onrender.com/api/movies/comming')//comming,in_theatre,chart
   }
   
 </script>
@@ -33,7 +33,7 @@
     {#each movieResponse.movies as movie}
     <article>
       <img src={movie.poster} />
-      <h4>{movie.title} {movie.douban_rating}</h4>
+      <h4>{movie.title} {movie.douban_rating ? movie.douban_rating : ''}</h4>
     </article>
     {/each}
   {:catch error}
