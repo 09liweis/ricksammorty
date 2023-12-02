@@ -30,10 +30,10 @@
   {#await fetchMovie()}
     <p>Loading Movies...</p>
   {:then movieResponse}
-    {#each movieResponse.movies as movie}
+    {#each movieResponse.movies as {title,poster,douban_rating}}
     <article>
-      <img src={movie.poster} />
-      <h4>{movie.title} {movie.douban_rating ? movie.douban_rating : ''}</h4>
+      <img src={poster} alt={title} />
+      <h4>{title} {douban_rating ? douban_rating : ''}</h4>
     </article>
     {/each}
   {:catch error}
