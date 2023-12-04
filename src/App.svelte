@@ -35,7 +35,9 @@
       <img class="movie_poster" src={poster} alt={title} />
       <section class="movie_info">
         <h4>{title}</h4>
-        <span class="movie_rating">{douban_rating ? douban_rating : ''}</span>
+        {#if douban_rating}
+        <span class="movie_rating">{douban_rating}</span>
+        {/if}
       </section>
     </article>
     {/each}
