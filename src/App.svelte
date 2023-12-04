@@ -34,7 +34,8 @@
     <article class="movie">
       <img class="movie_poster" src={poster} alt={title} />
       <section class="movie_info">
-        <h4>{title} {douban_rating ? douban_rating : ''}</h4>
+        <h4>{title}</h4>
+        <span class="movie_rating">{douban_rating ? douban_rating : ''}</span>
       </section>
     </article>
     {/each}
@@ -61,6 +62,7 @@
   .movie {
     display: flex;
     margin-top: 2rem;
+    position: relative;
   }
   .movie_poster {
     width: 30%;
@@ -68,6 +70,15 @@
   }
   .movie_info {
     padding: 10px;
+  }
+  .movie_rating {
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    color: #fff;
+    background-color: seagreen;
   }
 
 	@media (min-width: 640px) {
