@@ -64,6 +64,10 @@
   }
   .movie_poster {
     width: 30%;
+    border-radius: 10px;
+  }
+  .movie_info {
+    padding: 10px;
   }
 
 	@media (min-width: 640px) {
