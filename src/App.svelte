@@ -11,7 +11,7 @@
   }
 
   const fetchMovie = async () => {
-    return await sendRequest('https://samliweisen.onrender.com/api/movies/comming')//comming,in_theatre,chart
+    return await sendRequest('https://samliweisen.onrender.com/api/movies/chart')//comming,in_theatre,chart
   }
   
 </script>
@@ -31,9 +31,11 @@
     <p>Loading Movies...</p>
   {:then movieResponse}
     {#each movieResponse.movies as {title,poster,douban_rating}}
-    <article>
-      <img src={poster} alt={title} />
-      <h4>{title} {douban_rating ? douban_rating : ''}</h4>
+    <article class="movie">
+      <img class="movie_poster" src={poster} alt={title} />
+      <section class="movie_info">
+        <h4>{title} {douban_rating ? douban_rating : ''}</h4>
+      </section>
     </article>
     {/each}
   {:catch error}
@@ -50,12 +52,19 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	h2 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
 	}
+  .movie {
+    display: flex;
+    margin-top: 2rem;
+  }
+  .movie_poster {
+    width: 30%;
+  }
 
 	@media (min-width: 640px) {
 		main {
