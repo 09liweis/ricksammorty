@@ -1,8 +1,14 @@
 <script>
   import Movie from './Movie.svelte';
 	export let name;
+  const Categories = [
+    {'tl':'In Theatre','nm':'in_theatre'},
+    {'tl':'Comming','nm':'comming'},
+    {'tl':'Chart','nm':'chart'}
+  ];
   let movies = [];
   let loading = false;
+  let currentCategory = Categories[0].nm;
 
   const sendRequest = async (url) => {
     const response = await fetch(url)
@@ -14,17 +20,13 @@
   }
 
   const fetchMovie = async (category='in_theatre') => {
+    if (loading) return;
+    currentCategory = category;
     loading = true;
     const moviesResponse = await sendRequest(`https://samliweisen.onrender.com/api/movies/${category}`)//comming,in_theatre,chart
     movies = moviesResponse.movies;
     loading = false;
   }
-
-  const Categories = [
-    {'tl':'In Theatre','nm':'in_theatre'},
-    {'tl':'Comming','nm':'comming'},
-    {'tl':'Chart','nm':'chart'}
-  ];
 
   fetchMovie();
   
@@ -75,9 +77,14 @@
   .category_nav {
     padding: 5px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    color: #ff3e00;
+    margin: 5px;
+  }
+
+  .category_nav.active {
     background-color: #ff3e00;
     color: #fff;
-    margin: 5px;
   }
 
 	@media (min-width: 640px) {
