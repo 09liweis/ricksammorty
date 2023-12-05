@@ -11,9 +11,15 @@
     return await sendRequest('https://dog.ceo/api/breeds/image/random')
   }
 
-  const fetchMovie = async () => {
-    return await sendRequest('https://samliweisen.onrender.com/api/movies/chart')//comming,in_theatre,chart
+  const fetchMovie = async (category='in_theatre') => {
+    return await sendRequest(`https://samliweisen.onrender.com/api/movies/${category}`)//comming,in_theatre,chart
   }
+
+  const Categories = [
+    {'tl':'In Theatre','nm':'in_theatre'},
+    {'tl':'Comming','nm':'comming'},
+    {'tl':'Chart','nm':'chart'}
+  ];
   
 </script>
 
@@ -27,6 +33,12 @@
   {:catch error}
     <p>An error occurred!</p>
   {/await} -->
+
+  <section class="category_navs">
+    {#each Categories as {tl,nm}}
+    <span on:click={()=>fetchMovie(nm)} class="category_nav">{tl}</span>
+    {/each}
+  </section>
 
   {#await fetchMovie()}
     <p>Loading Movies...</p>
@@ -54,6 +66,14 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
+
+  .category_nav {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #ff3e00;
+    color: #fff;
+    margin: 5px;
+  }
 
 	@media (min-width: 640px) {
 		main {
