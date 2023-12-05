@@ -45,7 +45,7 @@
 
   <section class="category_navs">
     {#each Categories as {tl,nm}}
-    <span on:click={()=>fetchMovie(nm)} class="category_nav">{tl}</span>
+    <span on:click={()=>fetchMovie(nm)} class={`category_nav ${currentCategory == nm ? 'active': ''}`}>{tl}</span>
     {/each}
   </section>
 
@@ -80,9 +80,11 @@
     border: 1px solid #ccc;
     color: #ff3e00;
     margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
   }
 
-  .category_nav.active {
+  .category_nav.active,.category_nav:hover {
     background-color: #ff3e00;
     color: #fff;
   }
