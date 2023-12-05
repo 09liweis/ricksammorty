@@ -1,6 +1,8 @@
 <script>
   import Movie from './Movie.svelte';
 	export let name;
+  let movies = [];
+  let loading = false;
 
   const sendRequest = async (url) => {
     const response = await fetch(url)
@@ -12,7 +14,10 @@
   }
 
   const fetchMovie = async (category='in_theatre') => {
-    return await sendRequest(`https://samliweisen.onrender.com/api/movies/${category}`)//comming,in_theatre,chart
+    loading = true;
+    const moviesResponse = await sendRequest(`https://samliweisen.onrender.com/api/movies/${category}`)//comming,in_theatre,chart
+    movies = moviesResponse.movies;
+    loading = false;
   }
 
   const Categories = [
@@ -20,6 +25,8 @@
     {'tl':'Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'}
   ];
+
+  fetchMovie();
   
 </script>
 
@@ -40,15 +47,13 @@
     {/each}
   </section>
 
-  {#await fetchMovie()}
+  {#if loading}
     <p>Loading Movies...</p>
-  {:then movieResponse}
-    {#each movieResponse.movies as movie}
+  {:else}
+    {#each movies as movie}
     <Movie movie={movie} />
     {/each}
-  {:catch error}
-    <p>Movie Error</p>
-  {/await}
+  {/if}
   
 </main>
 
