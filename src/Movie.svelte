@@ -1,14 +1,17 @@
 <script>
   export let movie = {};
+  const infoArray = ['actors','director','category','duration'];
   const {title,poster,douban_rating,duration} = movie;
 </script>
 <article class="movie">
   <img class="movie_poster" src={poster} alt={title} />
   <section class="movie_info">
     <h4 class="movie_title">{title}</h4>
-    {#if duration}
-      <span>{duration}</span>
-    {/if}
+    {#each infoArray as info}
+      {#if movie[info]}
+        <p>{movie[info]}</p>
+      {/if}
+    {/each}
     {#if douban_rating}
     <span class="movie_rating">{douban_rating}</span>
     {/if}
@@ -17,7 +20,7 @@
 <style>
   .movie {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     position: relative;
   }
   .movie_poster {
