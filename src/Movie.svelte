@@ -22,6 +22,7 @@
     border-radius: 10px;
   }
   .movie_info {
+    width: calc(100% - 30%);
     padding: 10px;
   }
   .movie_rating {
