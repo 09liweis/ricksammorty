@@ -1,6 +1,6 @@
 <script>
   export let movie = {};
-  const infoArray = ['actors','director','category','duration'];
+  const infoArray = ['actors','director','category','duration','country','release'];
   const {title,poster,douban_rating,duration} = movie;
 </script>
 <article class="movie">
@@ -9,7 +9,7 @@
     <h4 class="movie_title">{title}</h4>
     {#each infoArray as info}
       {#if movie[info]}
-        <p>{movie[info]}</p>
+        <p class="">{movie[info]}</p>
       {/if}
     {/each}
     {#if douban_rating}
@@ -30,6 +30,10 @@
   .movie_info {
     width: calc(100% - 30%);
     padding: 10px;
+  }
+  .movie_info p {
+    margin: 0;
+    margin-top: 0.3rem;
   }
   .movie_title {
     margin: 0;
