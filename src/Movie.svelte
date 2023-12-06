@@ -1,11 +1,14 @@
 <script>
   export let movie = {};
-  const {title,poster,douban_rating} = movie;
+  const {title,poster,douban_rating,duration} = movie;
 </script>
 <article class="movie">
   <img class="movie_poster" src={poster} alt={title} />
   <section class="movie_info">
-    <h4>{title}</h4>
+    <h4 class="movie_title">{title}</h4>
+    {#if duration}
+      <span>{duration}</span>
+    {/if}
     {#if douban_rating}
     <span class="movie_rating">{douban_rating}</span>
     {/if}
@@ -24,6 +27,9 @@
   .movie_info {
     width: calc(100% - 30%);
     padding: 10px;
+  }
+  .movie_title {
+    margin: 0;
   }
   .movie_rating {
     border-radius: 5px;
