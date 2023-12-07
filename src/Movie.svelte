@@ -33,7 +33,7 @@
   }
   .movie_info p {
     margin: 0;
-    margin-top: 0.3rem;
+    margin-top: 0.1rem;
   }
   .movie_title {
     margin: 0;
@@ -43,7 +43,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px;
+    padding: 3px;
     color: #fff;
     background-color: seagreen;
   }
