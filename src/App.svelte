@@ -4,7 +4,8 @@
   const Categories = [
     {'tl':'In Theatre','nm':'in_theatre'},
     {'tl':'Comming','nm':'comming'},
-    {'tl':'Chart','nm':'chart'}
+    {'tl':'Chart','nm':'chart'},
+    {'tl':'Box Office','nm':'imdb_boxoffice'}
   ];
   let movies = [];
   let loading = false;
