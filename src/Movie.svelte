@@ -1,7 +1,7 @@
 <script>
   export let movie = {};
   const infoArray = ['actors','director','category','duration','country','release'];
-  const {title,poster,douban_rating,duration} = movie;
+  const {title,poster,douban_rating,duration,imdb_rating} = movie;
 </script>
 <article class="movie">
   <img class="movie_poster" src={poster} alt={title} />
@@ -14,6 +14,9 @@
     {/each}
     {#if douban_rating}
     <span class="movie_rating">{douban_rating}</span>
+    {/if}
+    {#if imdb_rating}
+    <span class="movie_rating imdb">{imdb_rating}</span>
     {/if}
   </section>
 </article>
@@ -46,5 +49,9 @@
     padding: 3px;
     color: #fff;
     background-color: seagreen;
+  }
+  .movie_rating.imdb {
+    color: #000;
+    background-color: #e0e000;
   }
 </style>
