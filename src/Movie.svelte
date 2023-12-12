@@ -1,7 +1,7 @@
 <script>
   export let movie = {};
   const infoArray = ['actors','director','category','duration','country','release'];
-  const {title,poster,douban_rating,duration,imdb_rating} = movie;
+  const {title,poster,douban_rating,duration,imdb_rating,totalGross,currentGross} = movie;
 </script>
 <article class="movie">
   <img class="movie_poster" src={poster} alt={title} />
@@ -12,6 +12,9 @@
         <p class="">{movie[info]}</p>
       {/if}
     {/each}
+    {#if totalGross}
+      <p>{currentGross} / {totalGross}</p>
+    {/if}
     {#if douban_rating}
     <span class="movie_rating">{douban_rating}</span>
     {/if}
