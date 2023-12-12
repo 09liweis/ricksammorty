@@ -5,7 +5,7 @@
     {'tl':'In Theatre','nm':'in_theatre'},
     {'tl':'Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'},
-    {'tl':'Box Office','nm':'imdb_boxoffice'}
+    {'tl':'IMDB Box Office','nm':'imdb_boxoffice'}
   ];
   let movies = [];
   let loading = false;
@@ -62,7 +62,7 @@
 <style>
 	main {
 		padding: 1em;
-		max-width: 360px;
+		max-width: 420px;
 		margin: 0 auto;
 	}
 
