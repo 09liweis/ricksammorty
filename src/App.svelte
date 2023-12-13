@@ -50,7 +50,7 @@
   </section>
 
   {#if loading}
-    <p>Loading Movies...</p>
+    <p class="loading">Loading Movies...</p>
   {:else}
     {#each movies as movie}
     <Movie movie={movie} />
@@ -87,6 +87,13 @@
   .category_nav.active,.category_nav:hover {
     background-color: #ff3e00;
     color: #fff;
+  }
+
+  .loading {
+    text-align: center;
+    color: #ccc;
+    font-size: 2em;
+    font-weight: 100;
   }
 
 	@media (min-width: 640px) {
