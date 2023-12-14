@@ -12,6 +12,10 @@
   let loading = false;
   let currentCategory = Categories[0].nm;
 
+  const getActiveCategoryClass = (category, currentCat) => {
+    return currentCat == category ? 'active': '';
+  }
+
   const sendRequest = async (url) => {
     const response = await fetch(url)
     return await response.json()
@@ -46,7 +50,7 @@
 
   <section class="category_navs">
     {#each Categories as {tl,nm}}
-    <span on:click={()=>fetchMovie(nm)} class={`category_nav ${currentCategory == nm ? 'active': ''}`}>{tl}</span>
+    <span on:click={()=>fetchMovie(nm)} class={`category_nav ${getActiveCategoryClass(nm,currentCategory)}`}>{tl}</span>
     {/each}
   </section>
 
