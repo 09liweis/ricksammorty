@@ -28,6 +28,8 @@
     display: flex;
     margin-top: 1rem;
     position: relative;
+    padding-top: 1rem;
+    border-top: 2px solid var(--main-color);
   }
   .movie_poster {
     width: 30%;

@@ -6,6 +6,7 @@
     {'tl':'Theatre','nm':'in_theatre'},
     {'tl':'Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'},
+    {'tl':'All Time BO','nm':'alltime_boxoffice'},
     {'tl':'IMDB BO','nm':'imdb_boxoffice'}
   ];
   let movies = [];
@@ -65,6 +66,10 @@
 </main>
 
 <style>
+  :root {
+    --main-color: #ff3e00;
+  }
+
 	main {
 		padding: 1em;
 		max-width: 420px;
@@ -73,28 +78,29 @@
 
 	h1 {
     text-align: center;
-		color: #ff3e00;
+		color: var(--main-color);
 		text-transform: uppercase;
 		font-size: 2em;
 		font-weight: 100;
 	}
 
   .category_navs{
-    display: flex;
+    
   }
 
   .category_nav {
+    display: inline-block;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    color: #ff3e00;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
     margin: 5px;
     cursor: pointer;
     transition: 0.3s;
   }
 
   .category_nav.active,.category_nav:hover {
-    background-color: #ff3e00;
+    background-color: var(--main-color);
     color: #fff;
   }
 
