@@ -2,6 +2,7 @@
   import Movie from './Movie.svelte';
 	export let name;
   const Categories = [
+    {'tl':'Popular','nm':'popular'},
     {'tl':'In Theatre','nm':'in_theatre'},
     {'tl':'Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'},
@@ -20,7 +21,7 @@
     return await sendRequest('https://dog.ceo/api/breeds/image/random')
   }
 
-  const fetchMovie = async (category='in_theatre') => {
+  const fetchMovie = async (category=Categories[0].nm) => {
     if (loading) return;
     currentCategory = category;
     loading = true;
