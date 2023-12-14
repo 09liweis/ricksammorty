@@ -4,7 +4,7 @@
   const {title,poster,douban_rating,duration,imdb_rating,totalGross,currentGross} = movie;
 </script>
 <article class="movie">
-  <img class="movie_poster" src={poster} alt={title} />
+  <img class="movie_poster" src={poster} alt={title} loading="lazy" />
   <section class="movie_info">
     <h4 class="movie_title">{title}</h4>
     {#each infoArray as info}
@@ -32,6 +32,15 @@
   .movie_poster {
     width: 30%;
     border-radius: 10px;
+  }
+  .movie_poster::before {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    content: 'Loading';
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .movie_info {
     width: calc(100% - 30%);
