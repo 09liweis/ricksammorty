@@ -3,10 +3,10 @@
 	export let name;
   const Categories = [
     {'tl':'Popular','nm':'popular'},
-    {'tl':'In Theatre','nm':'in_theatre'},
+    {'tl':'Theatre','nm':'in_theatre'},
     {'tl':'Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'},
-    {'tl':'IMDB Box Office','nm':'imdb_boxoffice'}
+    {'tl':'IMDB BO','nm':'imdb_boxoffice'}
   ];
   let movies = [];
   let loading = false;
@@ -74,6 +74,10 @@
 		font-size: 2em;
 		font-weight: 100;
 	}
+
+  .category_navs{
+    display: flex;
+  }
 
   .category_nav {
     padding: 5px;
