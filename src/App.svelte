@@ -1,13 +1,15 @@
 <script>
   import Movie from './Movie.svelte';
 	export let name;
+  const boxOffice = 'Box Office';
   const Categories = [
     {'tl':'Popular','nm':'popular'},
     {'tl':'Theatre','nm':'in_theatre'},
-    {'tl':'Comming','nm':'comming'},
+    {'tl':'In Comming','nm':'comming'},
     {'tl':'Chart','nm':'chart'},
-    {'tl':'All Time BO','nm':'alltime_boxoffice'},
-    {'tl':'IMDB BO','nm':'imdb_boxoffice'}
+    {'tl':`MaoYan ${boxOffice}`,'nm':'maoyan'},
+    {'tl':`All Time ${boxOffice}`,'nm':'alltime_boxoffice'},
+    {'tl':`IMDB ${boxOffice}`,'nm':'imdb_boxoffice'}
   ];
   let movies = [];
   let loading = false;
