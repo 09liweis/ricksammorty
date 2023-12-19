@@ -54,6 +54,7 @@
   }
   .movie_title {
     margin: 0;
+    color: var(--main-color);
   }
   .movie_rating {
     border-radius: 5px;
