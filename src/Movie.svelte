@@ -64,6 +64,8 @@
     padding: 3px;
     color: #fff;
     background-color: seagreen;
+    width: 25px;
+    text-align: center;
   }
   .movie_rating.imdb {
     color: #000;
