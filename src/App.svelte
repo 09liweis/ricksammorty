@@ -1,16 +1,8 @@
 <script>
   import Movie from './Movie.svelte';
+  import {Categories} from './contants.js';
 	export let name;
-  const boxOffice = 'Box Office';
-  const Categories = [
-    {'tl':'Popular','nm':'popular'},
-    {'tl':'Theatre','nm':'in_theatre'},
-    {'tl':'In Comming','nm':'comming'},
-    {'tl':'Chart','nm':'chart'},
-    {'tl':`MaoYan ${boxOffice}`,'nm':'maoyan'},
-    {'tl':`All Time ${boxOffice}`,'nm':'alltime_boxoffice'},
-    {'tl':`IMDB ${boxOffice}`,'nm':'imdb_boxoffice'}
-  ];
+
   let movies = [];
   let loading = false;
   let currentCategory = Categories[0].nm;
