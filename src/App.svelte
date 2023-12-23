@@ -1,6 +1,6 @@
 <script>
   import Movie from './Movie.svelte';
-  import {Categories} from './contants.js';
+  import {Categories,MOVIES_API} from './contants.js';
 	export let name;
 
   let movies = [];
@@ -24,7 +24,7 @@
     if (loading) return;
     currentCategory = category;
     loading = true;
-    const moviesResponse = await sendRequest(`https://samliweisen.onrender.com/api/movies/${category}`)//comming,in_theatre,chart
+    const moviesResponse = await sendRequest(`${MOVIES_API}${category}`)//comming,in_theatre,chart
     movies = moviesResponse.movies;
     loading = false;
   }

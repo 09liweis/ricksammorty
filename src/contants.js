@@ -8,3 +8,5 @@ export const Categories = [
   { tl: `All Time ${boxOffice}`, nm: "alltime_boxoffice" },
   { tl: `IMDB ${boxOffice}`, nm: "imdb_boxoffice" },
 ];
+
+export const MOVIES_API = "https://samliweisen.onrender.com/api/movies/";
