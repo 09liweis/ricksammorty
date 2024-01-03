@@ -20,7 +20,7 @@
     return await sendRequest('https://dog.ceo/api/breeds/image/random')
   }
 
-  const fetchMovie = async (category=currentCategory) => {
+  const fetchMovies = async (category=currentCategory) => {
     if (loading) return;
     currentCategory = category;
     loading = true;
@@ -31,7 +31,7 @@
     loading = false;
   }
 
-  fetchMovie();
+  fetchMovies();
   
 </script>
 
@@ -47,7 +47,7 @@
 
   <section class="category_navs">
     {#each Categories as {tl,nm}}
-    <span on:click={()=>fetchMovie(nm)} class={`category_nav ${getActiveCategoryClass(nm,currentCategory)}`}>{tl}</span>
+    <span on:click={()=>fetchMovies(nm)} class={`category_nav ${getActiveCategoryClass(nm,currentCategory)}`}>{tl}</span>
     {/each}
   </section>
 
