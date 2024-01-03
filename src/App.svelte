@@ -20,7 +20,7 @@
     return await sendRequest('https://dog.ceo/api/breeds/image/random')
   }
 
-  const fetchMovie = async (category=Categories[0].nm) => {
+  const fetchMovie = async (category=currentCategory) => {
     if (loading) return;
     currentCategory = category;
     loading = true;
