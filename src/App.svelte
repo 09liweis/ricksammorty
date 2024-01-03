@@ -26,7 +26,7 @@
     loading = true;
     const moviesResponse = await sendRequest(`${MOVIES_API}${category}`)//comming,in_theatre,chart
     if (moviesResponse?.movies) {
-        movies = moviesResponse.movies;
+      movies = moviesResponse.movies;
     }
     loading = false;
   }
