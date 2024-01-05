@@ -1,7 +1,7 @@
 const boxOffice = "Box Office";
 export const Categories = [
   { tl: "Popular", nm: "popular" },
-  { tl: "Theatre", nm: "in_theatre" },
+  { tl: "In Theatre", nm: "in_theatre" },
   { tl: "In Comming", nm: "comming" },
   { tl: "Chart", nm: "chart" },
   { tl: `MaoYan ${boxOffice}`, nm: "maoyan" },
