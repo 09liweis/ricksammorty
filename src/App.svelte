@@ -20,7 +20,7 @@
     if (loading) return;
     currentCategory = category;
     loading = true;
-    const moviesResponse = await sendRequest(`${MOVIES_API}${category}`)//comming,in_theatre,chart
+    const moviesResponse = await sendRequest(`${MOVIES_API}${category}`)
     if (moviesResponse?.movies) {
       movies = moviesResponse.movies;
     }
@@ -32,7 +32,7 @@
 </script>
 
 <main>
-  <h1>Svelte Movies</h1>
+  <h1>{name}</h1>
   <!-- {#await fetchDog()}
     <p>...waiting</p>
   {:then data}
