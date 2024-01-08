@@ -1,6 +1,7 @@
 <script>
   import Movie from './Movie.svelte';
   import {Categories,MOVIES_API} from './contants.js';
+  import {sendRequest} from './helper';
 	export let name;
 
   let movies = [];
@@ -9,12 +10,7 @@
 
   const getActiveCategoryClass = (category, currentCat) => {
     return currentCat == category ? 'active': '';
-  }
-
-  const sendRequest = async (url) => {
-    const response = await fetch(url)
-    return await response.json()
-  }
+  }  
 
   const fetchDog = async () => {
     return await sendRequest('https://dog.ceo/api/breeds/image/random')
@@ -102,7 +98,7 @@
 
   .loading {
     text-align: center;
-    color: #ccc;
+    color: var(--main-color);
     font-size: 2em;
     font-weight: 100;
   }
