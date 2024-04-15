@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  let title = "Rick and Morty Library";
+  const updatTitle = () => {
+    title = "Rick and Morty Done";
+  }
+</script>
+<h1>Welcome to {title}</h1>
+<button on:click={updatTitle}>Click</button>
