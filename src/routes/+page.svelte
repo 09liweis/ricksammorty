@@ -42,7 +42,7 @@
 <button on:click={updatTitle}>Click</button>
 {#each characters as c}
 <article>
-  <img src={c.image} />
+  <img src={c.image} alt={c.name}/>
   <h2>{c.name}</h2>
 </article>
 {/each}
