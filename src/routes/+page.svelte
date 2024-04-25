@@ -44,5 +44,6 @@
 <article>
   <img src={c.image} alt={c.name}/>
   <h2>{c.name}</h2>
+  <p>{c.status}</p>
 </article>
 {/each}
