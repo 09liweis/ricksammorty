@@ -23,8 +23,8 @@
 <article class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 p-1">
   <img src={c.image} alt={c.name} class="rounded"/>
   <h2>{c.name}</h2>
-  <p>{c.status}</p>
-  <p>{c.species}</p>
+  <p>{c.species} - {c.status}</p>
+  <p>{c.location.name}</p>
 </article>
 {/each}
 </section>
