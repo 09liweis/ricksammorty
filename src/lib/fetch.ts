@@ -10,6 +10,13 @@ interface CharacterInfo {
   prev: number | null;
 }
 
+interface Episode {
+  id: string;
+  name: string;
+  episode: string;
+  air_date: string;
+}
+
 interface Location {
   id: string;
   name: string;
@@ -30,6 +37,22 @@ interface LocationsResponse {
     info: CharacterInfo;
     results: Location[];
   }
+}
+
+interface CharacterResponse {
+  character: Character & {
+    origin: {
+      name: string;
+      type: string;
+      dimension: string;
+    };
+    location: {
+      name: string;
+      type: string;
+      dimension: string;
+    };
+    episode: Episode[];
+  };
 }
 
 const getCharactersQuery = (page: number) => gql`
@@ -84,6 +107,37 @@ const getLocationsQuery = (page: number) => gql`
 }
 `
 
+const getCharacterQuery = (id: string) => gql`
+{
+  character(id: ${id}) {
+    id
+    name
+    status
+    species
+    type
+    gender
+    image
+    created
+    origin {
+      name
+      type
+      dimension
+    }
+    location {
+      name
+      type
+      dimension
+    }
+    episode {
+      id
+      name
+      episode
+      air_date
+    }
+  }
+}
+`
+
 export const fetchGql = async (page = 1): Promise<{
   info: CharacterInfo;
   results: Character[];
@@ -98,4 +152,9 @@ export const fetchLocations = async (page = 1): Promise<{
 }> => {
   const response = await request<LocationsResponse>(GRAPHQL_URL, getLocationsQuery(page));
   return response.locations;
+}
+
+export const fetchCharacter = async (id: string) => {
+  const response = await request<CharacterResponse>(GRAPHQL_URL, getCharacterQuery(id));
+  return response.character;
 }

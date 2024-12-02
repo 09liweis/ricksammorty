@@ -22,20 +22,25 @@
 
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
       {#each characters as c}
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
-          <div class="relative">
-            <img 
-              src={c.image} 
-              alt={c.name} 
-              class="w-full h-48 object-cover hover:scale-105 transition-transform duration-200"
-            />
-          </div>
-          <div class="p-4">
-            <h2 class="font-bold text-gray-900 text-lg mb-2">{c.name}</h2>
-            <p class="text-sm text-gray-600 mb-1">{c.species} - <span class={c.status === 'Alive' ? 'text-green-600' : 'text-red-600'}>{c.status}</span></p>
-            <p class="text-sm text-gray-500 truncate">{c.location.name}</p>
-          </div>
-        </article>
+        <a 
+          href="/character/{c.id}" 
+          class="block"
+        >
+          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 hover:scale-105">
+            <div class="relative">
+              <img 
+                src={c.image} 
+                alt={c.name} 
+                class="w-full h-48 object-cover"
+              />
+            </div>
+            <div class="p-4">
+              <h2 class="font-bold text-gray-900 text-lg mb-2">{c.name}</h2>
+              <p class="text-sm text-gray-600 mb-1">{c.species} - <span class={c.status === 'Alive' ? 'text-green-600' : 'text-red-600'}>{c.status}</span></p>
+              <p class="text-sm text-gray-500 truncate">{c.location.name}</p>
+            </div>
+          </article>
+        </a>
       {/each}
     </section>
 
