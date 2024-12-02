@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import {fetchGql} from '$lib/fetch.js';
+  import {fetchGql} from '$lib/fetch';
   
   onMount(async() => {
 
