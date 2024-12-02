@@ -6,15 +6,17 @@ export interface Character {
     type: string;
     gender: string;
     image: string;
-    location: {
-        name: string;
-        url: string;
-    };
-    origin: {
-        name: string;
-        url: string;
-    };
+    location: Location;
+    origin: Location;
     episode: string[];
     url: string;
     created: string;
+}
+
+export interface Location {
+    name: string;
+    url: string;
+    type?: string;
+    dimension?: string;
+    residents?: string[];
 }

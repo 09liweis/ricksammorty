@@ -24,7 +24,9 @@
       {#each locations as location}
         <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
           <div class="p-6">
-            <h2 class="font-bold text-gray-900 text-xl mb-2">{location.name}</h2>
+            <a href="/location/{location.id}" class="hover:underline">
+              <h2 class="font-bold text-gray-900 text-xl mb-2">{location.name}</h2>
+            </a>
             <div class="space-y-2">
               <p class="text-purple-600 font-medium">{location.type}</p>
               <p class="text-gray-600">{location.dimension}</p>

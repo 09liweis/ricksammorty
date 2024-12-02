@@ -55,6 +55,12 @@ interface CharacterResponse {
   };
 }
 
+interface LocationResponse {
+  location: Location & {
+    residents: Character[];
+  };
+}
+
 const getCharactersQuery = (page: number) => gql`
 {
   characters(page: ${page}) {
@@ -138,11 +144,36 @@ const getCharacterQuery = (id: string) => gql`
 }
 `
 
-export const fetchGql = async (page = 1): Promise<{
+const getLocationQuery = (id: string) => gql`
+{
+  location(id: "${id}") {
+    id
+    name
+    type
+    dimension
+    residents {
+      id
+      name
+      status
+      species
+      type
+      gender
+      image
+    }
+  }
+}
+`
+
+export const fetchGql = async <T>(url: string, query: string): Promise<T> => {
+  const response = await request<T>(url, query);
+  return response;
+}
+
+export const fetchCharacters = async (page = 1): Promise<{
   info: CharacterInfo;
   results: Character[];
 }> => {
-  const response = await request<CharactersResponse>(GRAPHQL_URL, getCharactersQuery(page));
+  const response = await fetchGql<CharactersResponse>(GRAPHQL_URL, getCharactersQuery(page));
   return response.characters;
 }
 
@@ -150,11 +181,16 @@ export const fetchLocations = async (page = 1): Promise<{
   info: CharacterInfo;
   results: Location[];
 }> => {
-  const response = await request<LocationsResponse>(GRAPHQL_URL, getLocationsQuery(page));
+  const response = await fetchGql<LocationsResponse>(GRAPHQL_URL, getLocationsQuery(page));
   return response.locations;
 }
 
 export const fetchCharacter = async (id: string) => {
-  const response = await request<CharacterResponse>(GRAPHQL_URL, getCharacterQuery(id));
+  const response = await fetchGql<CharacterResponse>(GRAPHQL_URL, getCharacterQuery(id));
   return response.character;
+}
+
+export const fetchLocation = async (id: string) => {
+  const response = await fetchGql<LocationResponse>(GRAPHQL_URL, getLocationQuery(id));
+  return response.location;
 }
