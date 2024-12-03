@@ -1,9 +1,9 @@
 import type { PageLoad } from './$types';
-import { fetchGql } from '$lib/fetch';
+import { fetchCharacters } from '$lib/fetch';
 
 export const load: PageLoad = async ({ url }) => {
   const page = Number(url.searchParams.get('page')) || 1;
-  const data = await fetchGql(page);
+  const data = await fetchCharacters(page);
   
   return {
     characters: data.results,
