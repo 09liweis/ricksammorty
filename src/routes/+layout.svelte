@@ -21,6 +21,12 @@
           >
             Locations
           </a>
+          <a 
+            href="/episodes" 
+            class="px-3 py-2 rounded-md text-sm font-medium {$page.url.pathname === '/episodes' ? 'bg-purple-800' : 'hover:bg-purple-700'}"
+          >
+            Episodes
+          </a>
         </div>
       </div>
     </div>

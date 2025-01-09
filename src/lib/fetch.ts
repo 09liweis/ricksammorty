@@ -61,6 +61,45 @@ interface LocationResponse {
   };
 }
 
+interface EpisodesResponse {
+  episodes: {
+    info: CharacterInfo;
+    results: Episode[];
+  }
+}
+
+const getEpisodesQuery = (page: number) => gql`
+{
+  episodes(page: ${page}) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    results {
+      id
+      name
+      air_date
+      episode
+      characters {
+        id
+        name
+        image
+      }
+      created
+    }
+  }
+}
+`
+export const fetchEpisodes = async (page = 1): Promise<{
+  info: CharacterInfo;
+  results: Episode[];
+}> => {
+  const response = await fetchGql<EpisodesResponse>(GRAPHQL_URL, getEpisodesQuery(page));
+  return response.episodes;
+}
+
 const getCharactersQuery = (page: number) => gql`
 {
   characters(page: ${page}) {
