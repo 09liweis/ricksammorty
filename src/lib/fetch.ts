@@ -15,6 +15,7 @@ interface Episode {
   name: string;
   episode: string;
   air_date: string;
+  characters: Character[];
 }
 
 interface Location {
@@ -68,6 +69,10 @@ interface EpisodesResponse {
   }
 }
 
+interface EpisodeResponse {
+  episode: Episode;
+}
+
 const getEpisodesQuery = (page: number) => gql`
 {
   episodes(page: ${page}) {
@@ -92,12 +97,36 @@ const getEpisodesQuery = (page: number) => gql`
   }
 }
 `
+
+const getEpisodeQuery = (id: string) => gql`
+{
+  episode(id: ${id}) {
+    id
+    name
+    air_date
+    episode
+    characters {
+      id
+      name
+      status
+      species
+      image
+    }
+  }
+}
+`
+
 export const fetchEpisodes = async (page = 1): Promise<{
   info: CharacterInfo;
   results: Episode[];
 }> => {
   const response = await fetchGql<EpisodesResponse>(GRAPHQL_URL, getEpisodesQuery(page));
   return response.episodes;
+}
+
+export const fetchEpisode = async (id: string) => {
+  const response = await fetchGql<EpisodeResponse>(GRAPHQL_URL, getEpisodeQuery(id));
+  return response.episode;
 }
 
 const getCharactersQuery = (page: number) => gql`

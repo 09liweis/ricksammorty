@@ -34,7 +34,9 @@
                 <span class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-2">
                   {episode.episode}
                 </span>
-                <h2 class="text-xl font-bold text-gray-900">{episode.name}</h2>
+                <a href="/episode/{episode.id}" class="hover:text-purple-600 transition-colors">
+                  <h2 class="text-xl font-bold text-gray-900">{episode.name}</h2>
+                </a>
               </div>
             </div>
             
