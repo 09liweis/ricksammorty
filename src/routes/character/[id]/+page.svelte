@@ -60,8 +60,13 @@
             <ul class="space-y-2">
               {#each character.episode as episode}
                 <li class="text-sm">
-                  <span class="font-medium text-purple-600">{episode.episode}</span>
-                  {episode.name}
+                  <a 
+                    href="/episode/{episode.id}" 
+                    class="hover:text-purple-600 transition-colors"
+                  >
+                    <span class="font-medium text-purple-600">{episode.episode}</span>
+                    {episode.name}
+                  </a>
                 </li>
               {/each}
             </ul>
