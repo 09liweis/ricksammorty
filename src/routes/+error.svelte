@@ -49,7 +49,7 @@
       {/if}
       <a
         href="/"
-        class="px-6 py-2 {$page.status === 404 ? 'bg-purple-600 text-white hover:bg-purple-700' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} rounded-lg transition-colors"
+        class="p-2 {$page.status === 404 ? 'bg-purple-600 text-white hover:bg-purple-700' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} rounded-lg transition-colors"
       >
         Go Home
       </a>
