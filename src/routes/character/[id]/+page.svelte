@@ -57,19 +57,15 @@
         <div class="mt-6">
           <h3 class="text-lg font-semibold text-gray-800 mb-3">Episodes</h3>
           <div class="overflow-y-auto max-h-40 bg-gray-50 p-4 rounded-lg">
-            <ul class="space-y-2">
-              {#each character.episode as episode}
-                <li class="text-sm">
-                  <a 
-                    href="/episode/{episode.id}" 
-                    class="hover:text-purple-600 transition-colors"
-                  >
-                    <span class="font-medium text-purple-600">{episode.episode}</span>
-                    {episode.name}
-                  </a>
-                </li>
-              {/each}
-            </ul>
+            {#each character.episode as episode}
+              <a 
+                href="/episode/{episode.id}" 
+                class="block text-sm hover:text-purple-600 transition-colors"
+              >
+                <span class="font-medium text-purple-600">{episode.episode}</span>
+                {episode.name}
+              </a>
+            {/each}
           </div>
         </div>
         
