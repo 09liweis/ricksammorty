@@ -4,7 +4,6 @@
 
   export let data: PageData;
 
-  let title = "Rick and Morty Library";
   $: ({ characters, pagination: { currentPage, totalPages } } = data);
   
   async function handlePageChange(newPage: number) {
@@ -17,7 +16,7 @@
 <div class="min-h-screen bg-gray-100 py-8 px-4">
   <div class="max-w-7xl mx-auto">
     <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Rick and Morty Library</h1>
     </header>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
