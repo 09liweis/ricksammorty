@@ -40,7 +40,7 @@
               </div>
             </div>
             
-            <div class="space-y-2 mb-4">
+            <div class="mb-4">
               <p class="text-gray-600">
                 <span class="font-medium">Air Date:</span> {episode.air_date}
               </p>
