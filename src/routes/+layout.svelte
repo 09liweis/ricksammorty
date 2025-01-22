@@ -14,7 +14,7 @@
   ];
 </script>
 
-<nav class="bg-purple-600 text-white shadow-lg max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+<nav class="sticky top-0 z-10 bg-purple-600 text-white shadow-lg max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
   <a href="/" class="text-xl font-bold">Rick and Morty</a>
   <div class="flex space-x-4">
     {#each MENUS as menu}

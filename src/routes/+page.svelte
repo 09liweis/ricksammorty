@@ -26,7 +26,7 @@
           class="block"
         >
           <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-200 hover:scale-105">
-            <div class="relative">
+            <div class="relative z-0">
               <img 
                 src={c.image} 
                 alt={c.name} 
