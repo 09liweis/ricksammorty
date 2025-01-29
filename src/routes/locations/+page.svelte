@@ -21,36 +21,32 @@
     </header>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {#each locations as location}
-        <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
-          <div class="p-6">
-            <a href="/location/{location.id}" class="hover:underline">
-              <h2 class="font-bold text-gray-900 text-xl mb-2">{location.name}</h2>
-            </a>
-            <div class="space-y-2">
-              <p class="text-purple-600 font-medium">{location.type}</p>
-              <p class="text-gray-600">{location.dimension}</p>
-              <div class="mt-4">
-                <p class="text-sm text-gray-500">Residents: {location.residents.length}</p>
-                {#if location.residents.length > 0}
-                  <div class="flex -space-x-2 mt-2 overflow-hidden">
-                    {#each location.residents.slice(0, 5) as resident}
-                      <img 
-                        src={resident.image} 
-                        alt={resident.name}
-                        class="w-8 h-8 rounded-full border-2 border-white"
-                        title={resident.name}
-                      />
-                    {/each}
-                    {#if location.residents.length > 5}
-                      <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs text-gray-600">
-                        +{location.residents.length - 5}
-                      </div>
-                    {/if}
+      {#each locations as {id,name,type,dimension,residents}}
+        <article class="bg-white p-6 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
+          <a href="/location/{id}" class="hover:underline">
+            <h2 class="font-bold text-gray-900 text-xl mb-2">{name}</h2>
+          </a>
+          <div class="space-y-2">
+            <p class="text-purple-600 font-medium">{type}</p>
+            <p class="text-gray-600">{dimension}</p>
+            <p class="text-sm mt-4 text-gray-500">Residents: {residents.length}</p>
+            {#if residents.length > 0}
+              <div class="flex -space-x-2 mt-2 overflow-hidden">
+                {#each residents.slice(0, 5) as resident}
+                  <img 
+                    src={resident.image} 
+                    alt={resident.name}
+                    class="w-8 h-8 rounded-full border-2 border-white"
+                    title={resident.name}
+                  />
+                {/each}
+                {#if residents.length > 5}
+                  <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-xs text-gray-600">
+                    +{residents.length - 5}
                   </div>
                 {/if}
               </div>
-            </div>
+            {/if}
           </div>
         </article>
       {/each}
